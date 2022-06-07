@@ -29,12 +29,12 @@ on:
         type: boolean
       tags:
         description: 'Test scenario tags'
-        required: true
+        required: false
         type: string
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: true
+        required: false
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
