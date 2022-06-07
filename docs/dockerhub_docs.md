@@ -1,6 +1,6 @@
 # Supported tags and respective Dockerfile links
 
-* [7.65.3](https://github.com/buluma/curl-docker/blob/master/alpine/latest/Dockerfile)
+* [7.83.1](https://github.com/buluma/curl-docker/blob/master/alpine/latest/Dockerfile)
 
 # Quick reference
 * Where to get help: [website](https://curl.haxx.se/), [mailing lists](https://curl.haxx.se/mail/), [Everything Curl](https://curl.haxx.se/book.html)
