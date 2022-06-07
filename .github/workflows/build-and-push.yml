@@ -36,7 +36,7 @@ jobs:
         run: cd alpine/latest && docker build -t docker-curl .
 
       - name: Run the built image.
-        run: docker run --name test-curl -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-curl
+        run: docker run --rm -it docker-curl -v https://curl.haxx.se
 
       - name: Verify Curl is accessible in the built image.
         run: curl --version
