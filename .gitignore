@@ -1,4 +1,4 @@
-alpine/latest/curl/
+# alpine/latest/curl/
 alpine/latest/anchore-reports
 bin/
 *.asc
