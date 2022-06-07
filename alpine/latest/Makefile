@@ -1,5 +1,5 @@
 build:
-	docker build ${DOCKER_BUILD_OPTS} ${DOCKER_BUILD_ARGS} -t "curl/curl:${LATEST_RELEASE_VERSION}" -f Dockerfile .
+	docker build ${DOCKER_BUILD_OPTS} ${DOCKER_BUILD_ARGS} -t "buluma/curl:${LATEST_RELEASE_VERSION}" -f Dockerfile .
 
 multibuild:
 	docker buildx build ${DOCKER_BUILD_OPTS} ${DOCKER_BUILD_ARGS} -t "buluma/curl:7.83.1" --platform=${DOCKER_MULTI_ARCH} -f Dockerfile . --push

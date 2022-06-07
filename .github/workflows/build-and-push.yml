@@ -30,6 +30,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Test building image.
+        run: make build
+
+      - name: Test building image.
         run: cd alpine/latest && docker build -t docker-curl .
 
       - name: Run the built image.
