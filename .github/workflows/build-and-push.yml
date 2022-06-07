@@ -9,8 +9,6 @@ on:
       - '.github/workflows/build-and-push.yml'
     branches:
       - 'releases/**'
-    paths-ignore:
-      - 'docs/**'
   schedule:
     - cron: '20 */4 * * *'
   workflow_dispatch:
