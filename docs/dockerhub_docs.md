@@ -5,9 +5,8 @@
 # Quick reference
 * Where to get help: [website](https://curl.haxx.se/), [mailing lists](https://curl.haxx.se/mail/), [Everything Curl](https://curl.haxx.se/book.html)
 * Where to file issues: https://github.com/curl/curl-docker/issues
-* Maintained by: The curl docker team
-* License(s) - [license](https://curl.haxx.se/docs/copyright.html), check 3rd party documentation for license information
-* Supported architectures: (more info)
+* Maintained by: ShadowNet team
+* Supported architectures: amd64, arm64
 * github repo: [buluma/curl-docker](https://github.com/buluma/curl-docker)
 
 # What is Curl ?
@@ -33,5 +32,5 @@ DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3
 ```
 Here is a more specific example
 ```
-> docker run --rm -it buluma/curl:7.65.3 -v https://curl.haxx.se
+> docker run --rm -it buluma/curl:7.83.1 -v https://curl.haxx.se
 ```
