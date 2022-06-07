@@ -35,6 +35,12 @@ jobs:
       - name: Test building image.
         run: cd alpine/latest && docker build -t docker-curl .
 
+      # - name: Run the built image.
+      #   run: docker run --rm -it docker-curl -v https://curl.haxx.se
+      #
+      # - name: Verify Curl is accessible in the built image.
+      #   run: curl --version
+
   # If on master branch, build and release image.
   release:
     name: Release
