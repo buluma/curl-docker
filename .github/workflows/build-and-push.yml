@@ -7,20 +7,48 @@ on:
     paths:
       - 'alpine/latest/**'
       - '.github/workflows/build-and-push.yml'
+    branches:
+      - 'releases/**'
+    paths-ignore:
+      - 'docs/**'
   schedule:
     - cron: '20 */4 * * *'
   workflow_dispatch:
     inputs:
-      debug:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true
         type: boolean
-        required: false
-        default: 'false'
+      tags:
+        description: 'Test scenario tags'
+        required: true
+        type: string
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
 jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    if:  ${{ github.event.inputs.print_tags == 'true' }}
+    steps:
+      - name: Print the input tag to STDOUT
+        run: echo  The tags are ${{ github.event.inputs.tags }}
+
   # Test the image builds and works correctly.
   test:
     name: Test
@@ -28,9 +56,13 @@ jobs:
     if: ${{ github.event_name == 'push' }}
 
     steps:
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
       - uses: actions/checkout@v2
 
-      - name: Test building image.
+      - name: Make Build.
         run: make build
 
       - name: Test building image.
