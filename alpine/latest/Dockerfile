@@ -45,7 +45,7 @@ RUN curl https://curl.haxx.se/ca/cacert.pem -L -o /cacert.pem
 ###############################################################
 RUN ./buildconf && \
     autoreconf -vif && \
-    ./configure ${CURL_CONFIGURE_OPTION} &&\
+    ./configure ${CURL_CONFIGURE_OPTION} --without-ssl &&\
     make -j$(nproc) &&\
     #make test &&\
     make DESTDIR="/alpine/" install  -j$(nproc)
