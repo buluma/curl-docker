@@ -9,6 +9,7 @@ on:
       - '.github/workflows/build-and-push.yml'
     branches:
       - 'releases/**'
+      - master
   schedule:
     - cron: '20 */4 * * *'
   workflow_dispatch:
